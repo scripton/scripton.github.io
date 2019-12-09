@@ -1,0 +1,410 @@
+---
+---
+
+@import "//cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css";
+
+$bg-color: #f5f5f5e0;
+$theme-color: #136a73d1;
+$font-color: #404040e0;
+$header-font: "BebasNeue";
+$overlay-font-color: rgba(193, 193, 193, 0.878431);
+
+
+/*** Typography ***/
+
+@font-face {
+  font-family: "BebasNeue";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-bebas-neue@3.7.5/TypoPRO-BebasNeue-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+  color: $font-color;
+  font-family: $header-font;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  font-weight: 200;
+  padding-bottom: 35px;
+}
+
+h4 {
+  font-size: 1.55rem;
+}
+
+.quote {
+  font-size: 1.5em;
+}
+
+body {
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url(/img/bg.jpg);
+  background-blend-mode: color-dodge;
+
+  color: $font-color;
+  background-color: $bg-color;
+}
+
+/*** Header ***/
+
+nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid #cececeeb;
+  padding-bottom: 115px;
+  font-family: $header-font;
+}
+
+nav a {
+  color: lighten($font-color, 15%);
+}
+
+nav .menu-links {
+  padding-top: 1.5em;
+}
+
+nav ul a {
+  -webkit-transition: color 0.3s;
+  color: lighten($font-color, 15%);
+  transition: color 0.3s;
+  line-height: 2em;
+  letter-spacing: 0.1em;
+  font-size: 1.35rem;
+}
+
+nav ul a:hover {
+  background-color: transparent;
+}
+
+nav ul li {
+  -webkit-transition: none;
+  transition: none;
+}
+
+nav ul li.active {
+  background-color: transparent;
+}
+
+nav ul li.active a {
+  font-weight: 500;
+  color: $theme-color;
+}
+
+nav ul li.active a:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  line-height: 1em;
+  border-bottom: 2px solid lighten($theme-color, 5%);
+}
+
+.sidenav {
+  padding-top: 10%;
+  font-family: $header-font;
+  background-color: $bg-color;
+}
+
+.sidenav li > a {
+  -webkit-transition: color 0.3s;
+  color: lighten($font-color, 15%);
+  transition: color 0.3s;
+  line-height: 2em;
+  letter-spacing: 0.1em;
+  font-size: 1.35rem;
+}
+
+.sidenav li > a:hover {
+  background-color: rgba(62, 119, 116, 0.25);
+}
+
+header > .row:first-child {
+  margin-left: 80px;
+}
+
+.logo-wrapper {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 1.15rem;
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.logo .name {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+  line-height: 1.25em;
+}
+
+.logo .firstname {
+  color: darken($font-color, 5%);
+  letter-spacing: 0.05em;
+}
+
+.logo .lastname {
+  color: $theme-color;
+  letter-spacing: 0.125em;
+}
+
+.logo .role {
+  font-size: 1.75rem;
+  line-height: 0.75;
+  color: lighten($font-color, 5%);
+  padding-top: 0.35em;
+}
+
+/*** Intro ***/
+
+body.home {
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  list-style-type: none;
+  display: block;
+}
+
+.intro-nav {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.intro {
+  margin-top: 10%;
+  position: relative;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+.intro .name {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.intro .letters {
+  display: inline-block;
+  opacity: 0;
+}
+
+.intro h1 {
+  padding-bottom: 0em;
+  margin-bottom: 0.1em;
+  font-size: 3em;
+}
+
+.intro h2 {
+  margin-top: 0.25em;
+  font-size: 2.75em;
+}
+
+.intro .firstname {
+  color: darken($font-color, 5%);
+}
+
+.intro .lastname {
+  color: $theme-color;
+}
+
+.intro .role {
+  color: lighten($font-color, 5%);
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .intro .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 1.25em;
+    height: 2px;
+    width: 100%;
+    background-color: lighten($font-color, 35%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro .name {
+    padding-bottom: 0.5em;
+  }
+
+  .intro h1 {
+    font-size: 2.75em;
+  }
+
+  .intro h2 {
+    font-size: 2.35em;
+  }
+
+  .intro.container {
+    width: 75%;
+  }
+}
+
+.intro-content {
+  padding: 3em 2em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/*** Content ***/
+
+section {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
+    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content-header::before {
+  //background-image: url("/img/header-bg.png");
+  opacity: 0.85;
+  z-index: 999;
+  height: 185px;
+}
+
+.content-header {
+  //background-color: #2b2b2b;
+  background-image: url("/img/header-bg.png");
+  opacity: 0.85;
+  height: 185px;
+}
+
+main {
+  @media (max-width: 992px) {
+    padding-left: 10px;
+    padding-right: 25px;
+  }
+}
+
+main .content {
+  padding-top: 50px;
+  max-width: 1000px;
+}
+
+.container.content {
+  width: 85%;
+}
+
+.circle.responsive-img {
+  max-width: 250px;
+}
+
+/*** Sidenav ***/
+
+.social-links {
+  padding-top: 3em;
+}
+
+.social-links > li {
+  display: block;
+  max-width: 60px;
+  padding-bottom: 10px;
+}
+
+.social-links > li > a {
+  color: lighten($font-color, 15%);
+  font-size: 1.85em;
+  height: auto;
+  text-align: center;
+  display: inline-flex;
+}
+
+.social-links > li > a:hover {
+  color: #464646;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    margin-left: -5%;
+  }
+}
+
+/*** Timeline ***/
+
+.timeline-item ul li {
+  line-height: 2em;
+  list-style-type: none;
+}
+
+.timeline-item ul li:before {
+  font-family: "Material Design Icons";
+  content: "\f12c";
+  padding-right: 0.85em;
+  color: $theme-color;
+}
+
+@media (min-width: 768px) {
+  .timeline-marker {
+    left: 35%;
+    width: 10px;
+    height: 10px;
+    background: #0f8d9a;
+    margin-top: 10px;
+    margin-left: -5px;
+    z-index: 9999;
+    position: absolute;
+    transform: rotateX(45);
+  }
+
+  .timeline-item {
+    padding-bottom: 50px;
+  }
+
+  .timeline-left {
+    width: 30%;
+    position: absolute;
+  }
+
+  .timeline-right {
+    margin-left: 40%;
+  }
+
+  .timeline {
+    padding: 50px 0;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35%;
+    margin-left: -1px;
+    width: 2px;
+    height: 100%;
+    background: #ccd1d9;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-item {
+    border-bottom: 1px solid #cececeeb;
+  }
+}
+
+.valign-wrapper {
+  flex-wrap: wrap;
+}

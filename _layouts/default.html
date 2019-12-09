@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+    <!-- Nav -->
+    <nav class="fade-in transparent">
+        <div class="nav-wrapper container">
+            <a href="#" data-target="mobilenav" class="sidenav-trigger right"><i class="mdi mdi-menu"></i></a>
+
+            <ul id="nav-mobile" class="menu-links right hide-on-med-and-down">
+                {% for p in site.pages %}
+                {% if p.title != null %}
+                <li class="{% if p.url == page.url %}active{% endif %}">
+                    <a href="{{ p.url }}">{{ p.title }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <div class="logo-wrapper left">
+                <a href="/" class="logo">
+                    <div class="name">
+                        <span class="firstname">Daniel</span>
+                        <span class="lastname">De Schrijver</span>
+                    </div>
+                    <div class="role"><span>Web developer</span></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <ul id="mobilenav" class="sidenav">
+        {% for p in site.pages %}
+        {% if p.title != null %}
+        <li class="{% if p.url == page.url %}active{% endif %}">
+            <a href="{{ p.url }}">{{ p.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <!--<section class="content-header">
+    </section>-->
+
+    <!-- Content -->
+    <main>
+        <div class="row fade-in">
+            <div class="col s1 m1">
+                <ul class="social-links">
+                    <li><a href="mailto:{{site.email}}"><i class="mdi mdi-email-outline"></i></a></li>
+                    <li><a href="{{site.social.linkedin}}"><i class="mdi mdi-linkedin"></i></a></li>
+                    <li><a href="{{site.social.instagram}}"><i class="mdi mdi-instagram"></i></a></li>
+                    <li><a href="{{site.social.facebook}}"><i class="mdi mdi-facebook"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="col s11 m9">
+                <div class="container content">
+                    {{content}}
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+<script>
+    anime.timeline({ loop: false })
+        .add({
+            targets: '.fade-in', //in
+            easing: 'linear',
+            opacity: [0, 1],
+            duration: 500,
+            offset: '50'
+        });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
+</script>
+
+</html>
