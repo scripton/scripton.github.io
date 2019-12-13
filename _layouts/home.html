@@ -51,7 +51,7 @@
     <main>
 
         <div class="row">
-            <div class="col">
+            <div class="col s1">
                 <ul class="social-links fade-in">
                     <li><a href="mailto:{{site.email}}"><i class="mdi mdi-email-outline"></i></a></li>
                     <li><a href="{{site.social.linkedin}}"><i class="mdi mdi-linkedin"></i></a></li>
@@ -60,7 +60,7 @@
                 </ul>
             </div>
 
-            <div class="col s11">
+            <div class="col s10">
                 <div class="intro container">
                     <h1 class="center-align">
                         <span class="name">
@@ -83,9 +83,9 @@
     </section>-->
 
     <section class="intro-content fade-in">
-        <div class="container">
+        <div class="quote-wrapper">
             <p class="quote">"I find that the harder I work, the more luck I seem to have."</p>
-            <span>Thomas Jefferson</span>
+            <span class="author">Thomas Jefferson</span>
         </div>
     </section>
 </body>
@@ -97,28 +97,29 @@
             opacity: [0.5],
             scaleX: [0, 1],
             easing: "easeInOutExpo",
-            duration: 700
+            duration: 700,
+            offset: '-=100'
         }).add({
             targets: '.intro .firstname', //in
             opacity: [0, 1],
             scaleY: [0.5, 1],
             easing: "easeOutExpo",
-            duration: 600,
-            offset: '-=600'
+            duration: 700,
+            offset: '-=100'
         }).add({
             targets: '.intro .lastname', // left
             opacity: [0, 1],
             translateX: ["0.5em", 0],
             easing: "easeOutExpo",
-            duration: 600,
+            duration: 700,
             offset: '-=300'
         }).add({
             targets: '.intro .role', //right
             opacity: [0, 1],
             translateX: ["-0.5em", 0],
             easing: "easeOutExpo",
-            duration: 600,
-            offset: '-=600'
+            duration: 800,
+            offset: '-=200'
         }).add({
             targets: '.content-header', //in
             opacity: [0, 0.85],
@@ -128,8 +129,8 @@
         }).add({
             targets: '.fade-in', //in
             opacity: [0, 1],
-            duration: 2000,
-            offset: '-=1500'
+            duration: 1500,
+            offset: '-=500'
         });
 
     document.addEventListener('DOMContentLoaded', function () {

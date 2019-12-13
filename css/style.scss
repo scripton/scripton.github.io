@@ -9,7 +9,6 @@ $font-color: #404040e0;
 $header-font: "BebasNeue";
 $overlay-font-color: rgba(193, 193, 193, 0.878431);
 
-
 /*** Typography ***/
 
 @font-face {
@@ -267,6 +266,19 @@ body.home {
   box-shadow: none;
 }
 
+.intro-content .quote-wrapper {
+  max-width: 700px;
+  margin: auto;
+}
+
+.quote-wrapper .quote {
+  text-align: center;
+}
+
+.quote-wrapper .author {
+  float: right;
+}
+
 /*** Content ***/
 
 section {
@@ -339,6 +351,19 @@ main .content {
   }
 }
 
+.about-content {
+  flex-wrap: wrap;
+}
+
+.about-content div:first-child {
+  min-width: 275px;
+  margin-bottom: 35px;;
+}
+
+.about .col {
+  margin: auto;
+}
+
 /*** Timeline ***/
 
 .timeline-item ul li {
@@ -403,8 +428,4 @@ main .content {
   .timeline-item {
     border-bottom: 1px solid #cececeeb;
   }
-}
-
-.valign-wrapper {
-  flex-wrap: wrap;
 }
