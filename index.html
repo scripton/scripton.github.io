@@ -32,11 +32,19 @@
   <header class="site-nav" id="siteNav">
     <div class="container nav-inner">
       <a href="#hero" class="nav-logo" aria-label="Daniel De Schrijver — Home">D<span>.</span></a>
+      <div class="nav-right">
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">
+        <!-- Moon (dark mode active) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <!-- Sun (light mode active) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      </div>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="menu-icon"><span></span><span></span><span></span></span>
       </button>
@@ -56,6 +64,7 @@
 
     <!-- Hero -->
     <section class="hero" id="hero" aria-label="Introduction">
+      <canvas id="globe-canvas" aria-hidden="true"></canvas>
       <div class="hero-accent-line" aria-hidden="true"></div>
       <div class="container hero-content">
         <p class="hero-label reveal-hero" style="--delay:0ms">
@@ -121,12 +130,12 @@
             </div>
             <div class="languages reveal">
               <p class="lang-label">Languages</p>
-              <div class="lang-row">
-                <div class="lang-cell"><span class="lang-name">Dutch</span><span class="lang-level accent-text">Native</span></div>
-                <div class="lang-cell"><span class="lang-name">English</span><span class="lang-level accent-text">Native</span></div>
-                <div class="lang-cell"><span class="lang-name">French</span><span class="lang-level">Working</span></div>
-                <div class="lang-cell"><span class="lang-name">German</span><span class="lang-level">Basic</span></div>
-              </div>
+              <ul class="lang-list">
+                <li class="lang-item"><span class="lang-name native">Dutch</span><span class="lang-level">Native</span></li>
+                <li class="lang-item"><span class="lang-name native">English</span><span class="lang-level">Native</span></li>
+                <li class="lang-item"><span class="lang-name">French</span><span class="lang-level">Basic</span></li>
+                <li class="lang-item"><span class="lang-name">German</span><span class="lang-level">Basic</span></li>
+              </ul>
             </div>
           </div>
           <div class="about-right">
@@ -212,10 +221,32 @@
       </div>
     </section>
 
+    <!-- Certifications -->
+    <section class="section section-cert" id="certifications" aria-label="Certifications">
+      <div class="container">
+        <p class="eyebrow reveal">03 &mdash; Certifications</p>
+        <h2 class="section-heading reveal">Certified <span>expertise.</span></h2>
+        <div class="cert-cards">
+          <div class="cert-card reveal">
+            <div class="cert-card-header">
+              <span class="tl-cert-badge">Sitecore Content Hub</span>
+            </div>
+            <p class="tl-cert-text">Certified Sitecore Content Hub professional with hands-on expertise across the platform. Actively works with customers to diagnose issues, navigate complex use cases, and drive successful resolutions &mdash; combining deep product knowledge with a customer-facing, problem-solving approach.</p>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-card-header">
+              <span class="tl-cert-badge">AI Engineer</span>
+            </div>
+            <p class="tl-cert-text">Applying AI engineering knowledge directly within the Sitecore ecosystem to help drive Content Hub targets. Focused on leveraging AI to unlock new capabilities, streamline workflows, and deliver measurable impact &mdash; bridging the gap between emerging technology and real-world product outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section section-contact" id="contact" aria-label="Contact">
       <div class="container contact-wrap">
-        <p class="eyebrow reveal">03 &mdash; Contact</p>
+        <p class="eyebrow reveal">04 &mdash; Contact</p>
         <h2 class="contact-heading reveal">Let&rsquo;s connect.</h2>
         <p class="contact-body reveal">
           Whether it&rsquo;s a project, a collaboration, or just a conversation &mdash; I&rsquo;m always open.<br>
@@ -239,5 +270,120 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script>
+  (function () {
+    const canvas    = document.getElementById('globe-canvas');
+    const ctx       = canvas.getContext('2d');
+    const BRUSSELS  = [4.35, 50.85];
+    const A         = 'rgba(185,136,44,';
+
+    let W, H, scale, tx, ty;
+    let projection, path, graticule, raf;
+    let rotation = [-BRUSSELS[0], -BRUSSELS[1]];
+    let world, belgium, borders;
+
+    function buildProjection() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width  = rect.width  * devicePixelRatio;
+      canvas.height = rect.height * devicePixelRatio;
+      W = canvas.width; H = canvas.height;
+      scale = Math.min(W, H) * 0.54;
+      tx = W * 0.62; ty = H * 0.5;
+      projection = d3.geoOrthographic()
+        .scale(scale)
+        .translate([tx, ty])
+        .clipAngle(90)
+        .rotate(rotation);
+      path      = d3.geoPath(projection, ctx);
+      graticule = d3.geoGraticule()();
+    }
+
+    function draw(t) {
+      if (!world) return;
+      rotation[0] += 0.025;
+      projection.rotate(rotation);
+
+      const light = document.body.classList.contains('light-mode');
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Globe sphere fill
+      ctx.beginPath(); path({type:'Sphere'});
+      ctx.fillStyle = light ? 'rgba(210,195,170,0.55)' : 'rgba(10,9,7,0.6)';
+      ctx.fill();
+
+      // Graticule grid
+      ctx.beginPath(); path(graticule);
+      ctx.strokeStyle = light ? 'rgba(140,110,60,0.2)' : A + '0.15)';
+      ctx.lineWidth   = 0.6 * devicePixelRatio;
+      ctx.stroke();
+
+      // All countries
+      world.features.forEach(f => {
+        ctx.beginPath(); path(f);
+        ctx.fillStyle = f === belgium
+          ? (light ? 'rgba(185,136,44,0.55)' : A + '0.45)')
+          : (light ? 'rgba(185,136,44,0.12)' : A + '0.07)');
+        ctx.fill();
+      });
+
+      // Country borders
+      ctx.beginPath(); path(borders);
+      ctx.strokeStyle = light ? 'rgba(140,100,40,0.45)' : A + '0.35)';
+      ctx.lineWidth   = 0.8 * devicePixelRatio;
+      ctx.stroke();
+
+      // Belgium border
+      if (belgium) {
+        ctx.beginPath(); path(belgium);
+        ctx.strokeStyle = A + '1)';
+        ctx.lineWidth   = 2 * devicePixelRatio;
+        ctx.stroke();
+
+        // Brussels glow
+        const pulse = 0.55 + 0.45 * Math.sin(t * 0.002);
+        const pt    = projection(BRUSSELS);
+        if (pt) {
+          const [bx, by] = pt;
+          const r = 36 * devicePixelRatio * pulse;
+          const g = ctx.createRadialGradient(bx, by, 0, bx, by, r);
+          g.addColorStop(0,   A + '0.85)');
+          g.addColorStop(0.4, A + '0.3)');
+          g.addColorStop(1,   A + '0)');
+          ctx.beginPath(); ctx.arc(bx, by, r, 0, Math.PI*2);
+          ctx.fillStyle = g; ctx.fill();
+          ctx.beginPath(); ctx.arc(bx, by, 3.5 * devicePixelRatio, 0, Math.PI*2);
+          ctx.fillStyle = A + '1)'; ctx.fill();
+        }
+      }
+
+      // Globe outline ring
+      ctx.beginPath(); path({type:'Sphere'});
+      ctx.strokeStyle = light ? 'rgba(140,100,40,0.3)' : A + '0.2)';
+      ctx.lineWidth   = 1.2 * devicePixelRatio;
+      ctx.stroke();
+    }
+
+    function frame(t) {
+      draw(t);
+      raf = requestAnimationFrame(frame);
+    }
+
+    window.addEventListener('resize', buildProjection);
+    buildProjection();
+
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+      .then(r => r.json())
+      .then(topo => {
+        world   = topojson.feature(topo, topo.objects.countries);
+        borders = topojson.mesh(topo, topo.objects.countries, (a,b) => a !== b);
+        belgium = world.features.find(f => +f.id === 56);
+        buildProjection();
+        raf = requestAnimationFrame(frame);
+      });
+  })();
+  </script>
 </body>
 </html>

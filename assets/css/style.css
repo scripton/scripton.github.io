@@ -29,6 +29,63 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --- Light mode overrides --- */
+body.light-mode {
+  --bg-base:        #FAF7F2;
+  --bg-surface:     #F0EBE2;
+  --bg-elevated:    #E8E1D6;
+  --bg-hover:       #DDD5C8;
+  --border:         #CEC5B5;
+  --border-strong:  #B5AA97;
+  --text-primary:   #16120D;
+  --text-secondary: #3D3529;
+  --text-muted:     #7A6E5F;
+  --accent-dim:     rgba(185, 136, 44, 0.18);
+}
+
+/* Hero */
+body.light-mode .hero-accent-line  { opacity: 0.5; }
+body.light-mode .btn-primary       { color: #FAF7F2; }
+body.light-mode .hero-number       { color: #E0D8CC; }
+body.light-mode .about-photo       { border-color: var(--border); }
+
+/* Navbar */
+body.light-mode .site-nav          { background: rgba(245,240,232,0.92); border-bottom-color: transparent; }
+body.light-mode .site-nav.scrolled { background: rgba(240,234,224,0.97); border-bottom-color: transparent; }
+
+/* Footer */
+body.light-mode .site-footer { border-top: none; }
+
+/* Sections */
+body.light-mode .section-about   { background-color: #FFFCF7; }
+body.light-mode .section-exp     { background-color: #F4EFE6; }
+body.light-mode .section-cert    { background-color: #FFFCF7; }
+body.light-mode .section-contact { background-color: #F0EAE0; }
+body.light-mode .section-exp,
+body.light-mode .section-cert,
+body.light-mode .section-contact { border-top: none; }
+
+/* About — stat tiles */
+body.light-mode .stats                  { background: none; border-color: transparent; gap: 0; }
+body.light-mode .stat,
+body.light-mode .stat.stat-accent       { background: none; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.25rem 1rem; }
+body.light-mode .stat:nth-child(2n)     { border-right: none; }
+body.light-mode .stat:nth-last-child(-n+2) { border-bottom: none; }
+body.light-mode .stat-num         { color: var(--accent); }
+body.light-mode .stat-accent .stat-num   { color: var(--accent); }
+body.light-mode .stat-accent .stat-label { color: var(--text-muted); }
+
+/* About — tags & languages */
+body.light-mode .tag         { background: transparent; border-color: var(--border); color: var(--text-secondary); }
+body.light-mode .tag:hover   { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+/* Certifications */
+body.light-mode .cert-card         { background: #FFFCF7; border-left-color: var(--accent); }
+body.light-mode .tl-cert-badge     { background: rgba(185,136,44,0.2); }
+
+/* Globe */
+body.light-mode #globe-canvas { opacity: 0.4; }
+
 /* --- Reset --- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -149,6 +206,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-links a.active::after,
 .nav-links a:hover::after { width: 100%; }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  color: var(--text-secondary);
+  transition: color 200ms ease;
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: block; }
+body.light-mode .theme-toggle .icon-sun  { display: block; }
+body.light-mode .theme-toggle .icon-moon { display: none; }
+
 /* Hamburger */
 .menu-btn {
   display: none;
@@ -221,6 +299,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
   padding-top: var(--nav-h);
   background-color: var(--bg-base);
+}
+
+#globe-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.85;
 }
 
 /* Left vertical accent line */
@@ -465,33 +552,41 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--text-muted);
 }
 
-.lang-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+.lang-list {
+  display: flex;
+  gap: 0;
+  list-style: none;
 }
 
-.lang-cell {
+.lang-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 0.625rem 0.75rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  gap: 3px;
+  padding-right: 1.25rem;
+  margin-right: 1.25rem;
+  border-right: 1px solid var(--border);
 }
+.lang-item:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
 .lang-name {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--text-secondary);
+}
+.lang-name.native {
+  color: var(--accent);
 }
 .lang-level {
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.lang-level.accent-text { color: var(--accent); }
 
 /* Photo + stats column */
 .about-right {
@@ -630,6 +725,56 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   opacity: 0.7;
 }
 
+.cert-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  flex: 1;
+  min-width: 280px;
+  max-width: 560px;
+  padding: 1.5rem;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-elevated);
+}
+.cert-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tl-cert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+}
+.tl-cert-badge {
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(185, 136, 44, 0.15);
+  padding: 0.2em 0.55em;
+  margin-top: 0.15em;
+}
+.tl-cert-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
 /* =============================================
    Contact
    ============================================= */
@@ -735,9 +880,6 @@ button:focus-visible {
     grid-template-columns: 140px 1fr;
     gap: 2rem;
   }
-  .lang-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* =============================================
@@ -766,9 +908,6 @@ button:focus-visible {
   .stats {
     flex: 1;
     min-width: 180px;
-  }
-  .lang-row {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Experience */

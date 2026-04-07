@@ -112,4 +112,18 @@
     if (e.key === 'Escape' && menuOpen) closeMenu();
   });
 
+  // --- Theme toggle ---
+  var themeToggle = document.getElementById('themeToggle');
+  var savedTheme  = localStorage.getItem('theme');
+
+  if (savedTheme === 'light') document.body.classList.add('light-mode');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      themeToggle.setAttribute('aria-label', isLight ? 'Toggle dark mode' : 'Toggle light mode');
+    });
+  }
+
 })();
