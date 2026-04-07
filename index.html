@@ -1,4 +1,243 @@
----
-title: 
-layout: home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daniel De Schrijver — Senior Developer, AI Specialist, and Certified Personal Coach based in Belgium.">
+  <meta name="theme-color" content="#0C0C0C">
+  <meta property="og:title" content="Daniel De Schrijver">
+  <meta property="og:description" content="Senior Developer · AI Specialist · Personal Coach based in Belgium.">
+  <meta property="og:url" content="https://daniel.fyi">
+  <title>Daniel De Schrijver</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTQWZ1Z5F7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FTQWZ1Z5F7');
+  </script>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Daniel De Schrijver — Home">D<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-icon"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero-accent-line" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-label reveal-hero" style="--delay:0ms">
+          <span class="dot-live"></span>
+          Based in Wetteren, Belgium
+        </p>
+        <h1 class="hero-name reveal-hero" style="--delay:100ms">
+          Daniel<br><span class="hero-name-accent">De Schrijver</span>
+        </h1>
+        <p class="hero-role reveal-hero" style="--delay:260ms">
+          Senior Developer &nbsp;&middot;&nbsp; AI Specialist &nbsp;&middot;&nbsp; Personal Coach
+        </p>
+        <p class="hero-desc reveal-hero" style="--delay:380ms">
+          Building elegant solutions and empowering teams across Belgium and beyond.
+        </p>
+        <div class="hero-actions reveal-hero" style="--delay:500ms">
+          <a href="#contact" class="btn-primary">Get in touch</a>
+          <a href="#experience" class="btn-ghost">View experience</a>
+        </div>
+        <ul class="hero-socials reveal-hero" style="--delay:640ms" aria-label="Social links">
+          <li>
+            <a href="https://www.linkedin.com/in/dan-scriptor/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:dan.scriptor@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/daniel.fyi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="hero-number" aria-hidden="true">14</div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-about" id="about" aria-label="About me">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left">
+            <p class="eyebrow reveal">01 &mdash; About</p>
+            <h2 class="section-heading reveal">
+              Crafting solutions,<br><span>inspiring people.</span>
+            </h2>
+            <p class="body-text reveal">
+              Software developer with over 14 years of experience building web solutions at the intersection of technology and human experience. Currently at Sitecore, combining deep technical expertise with a passion for mentoring and enabling teams.
+            </p>
+            <p class="body-text reveal">
+              Outside of code, I'm a certified personal coach &mdash; helping people unlock their potential is just as rewarding as shipping great software.
+            </p>
+            <div class="tags reveal">
+              <span class="tag">Full-Stack</span>
+              <span class="tag">AI &amp; ML</span>
+              <span class="tag">Leadership</span>
+              <span class="tag">Coaching</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Mentoring</span>
+            </div>
+            <div class="languages reveal">
+              <p class="lang-label">Languages</p>
+              <div class="lang-row">
+                <div class="lang-cell"><span class="lang-name">Dutch</span><span class="lang-level accent-text">Native</span></div>
+                <div class="lang-cell"><span class="lang-name">English</span><span class="lang-level accent-text">Native</span></div>
+                <div class="lang-cell"><span class="lang-name">French</span><span class="lang-level">Working</span></div>
+                <div class="lang-cell"><span class="lang-name">German</span><span class="lang-level">Basic</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="about-right">
+            <div class="about-photo reveal">
+              <img src="img/daniel.jpg" alt="Daniel De Schrijver" width="200" height="200">
+            </div>
+            <div class="stats reveal">
+              <div class="stat">
+                <div class="stat-num">14<span>+</span></div>
+                <p class="stat-label">Years experience</p>
+              </div>
+              <div class="stat">
+                <div class="stat-num" aria-hidden="true">&nbsp;</div>
+                <p class="stat-label">Certified specialist</p>
+              </div>
+              <div class="stat">
+                <div class="stat-num" style="font-size:2.25rem">NL<span>/</span>EN</div>
+                <p class="stat-label">Native languages</p>
+              </div>
+              <div class="stat stat-accent">
+                <div class="stat-num" style="color:#0C0C0C">BE</div>
+                <p class="stat-label" style="color:rgba(12,12,12,0.6)">Based in Belgium</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section section-exp" id="experience" aria-label="Work experience">
+      <div class="container">
+        <p class="eyebrow reveal">02 &mdash; Experience</p>
+        <h2 class="section-heading reveal">Career <span>timeline.</span></h2>
+
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <span class="tl-year">2018 &mdash; Present</span>
+          </div>
+          <div class="tl-right">
+            <p class="tl-company">Sitecore</p>
+            <h3 class="tl-role">Tech Support Lead</h3>
+            <p class="tl-desc">Developer-oriented experience with a focus on training, coaching, and enabling high-performance teams.</p>
+            <ul class="tl-list">
+              <li>Automation of internal workflows to improve operational efficiency</li>
+              <li>Product training sessions for new hires and enterprise clients</li>
+              <li>Technical support services for internal and external stakeholders</li>
+              <li>Onboarding and mentoring of technical support engineers</li>
+              <li>Cross-location team management and coordination</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <span class="tl-year">2010 &mdash; 2018</span>
+          </div>
+          <div class="tl-right">
+            <p class="tl-company">STYLELABS</p>
+            <h3 class="tl-role">Full-Stack Web Developer</h3>
+            <p class="tl-desc">8 years delivering scalable web solutions and customer-facing implementations, end to end.</p>
+            <ul class="tl-list">
+              <li>Customer-facing support services and implementation projects</li>
+              <li>Large-scale project and data migrations</li>
+              <li>Performance optimization and stability improvements</li>
+              <li>Internal tooling development to increase team productivity</li>
+              <li>Solo management and delivery of multiple concurrent projects</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <span class="tl-year">2009 &mdash; 2012</span>
+          </div>
+          <div class="tl-right">
+            <p class="tl-company">Education</p>
+            <h3 class="tl-role">Erasmushogeschool Brussel</h3>
+            <p class="tl-desc">Applied computer science &mdash; forming the technical foundation for a 14+ year career in software development.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-contact" id="contact" aria-label="Contact">
+      <div class="container contact-wrap">
+        <p class="eyebrow reveal">03 &mdash; Contact</p>
+        <h2 class="contact-heading reveal">Let&rsquo;s connect.</h2>
+        <p class="contact-body reveal">
+          Whether it&rsquo;s a project, a collaboration, or just a conversation &mdash; I&rsquo;m always open.<br>
+          I typically respond within 48 hours.
+        </p>
+        <ul class="contact-socials reveal" aria-label="Social profiles">
+          <li><a href="mailto:dan.scriptor@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/dan-scriptor/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/daniel.fyi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-text">&copy; <span id="year"></span> Daniel De Schrijver</span>
+      <span class="footer-text">daniel.fyi</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
