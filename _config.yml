@@ -1,23 +1,18 @@
 # Site settings
-title: Dan's Portfolio
+title: Daniel De Schrijver
+tagline: Product Support Manager at Sitecore
 email: dan.scriptor@gmail.com
-url: http://daniel.fyi
-description: "Daniel's portfolio"
+url: https://daniel.fyi
+description: "Daniel De Schrijver, Product Support Manager and Tech Support Lead at Sitecore. Developer at heart, building AI and MCP tooling for support teams."
 
-# Color settings (hex-codes without the leading hash-tag)
-color:
-  primary-light: '#fff'
-  primary-dark: '#4b4b4b'
-  links: '#ff3680'
-
-# Footer settings
-footer: Footer
+# Google Analytics 4 measurement ID
+ga4: G-FTQWZ1Z5F7
 
 # Social link references
 social:
-  facebook: https://www.facebook.com/daniel.fyi/
-  instagram: https://www.instagram.com/daniel.fyi/
   linkedin: https://www.linkedin.com/in/dan-scriptor/
+  instagram: https://www.instagram.com/daniel.fyi/
+  facebook: https://www.facebook.com/daniel.fyi/
 
 # Static files
 defaults:
@@ -30,3 +25,4 @@ defaults:
 markdown: kramdown
 permalink: pretty
 include: ['_pages']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'LICENSE']

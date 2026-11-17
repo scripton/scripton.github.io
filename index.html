@@ -1,4 +1,80 @@
 ---
-title: 
-layout: home
+layout: default
 ---
+{% assign start_year = 2010 %}
+{% assign now_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign years = now_year | minus: start_year %}
+
+<section class="hero">
+    <div class="eyebrow">Portfolio · {{ now_year }}</div>
+    <h1><span class="row">Daniel</span><span class="row">De Schrijver</span></h1>
+    <p class="role">I lead technical support at Sitecore and wire <span class="typed" id="typed">AI into everything we do.</span></p>
+    <div class="scroll-cue" aria-hidden="true">SCROLL<i></i></div>
+</section>
+
+<section id="about">
+    <div class="grid2">
+        <h2 class="reveal">{{ years }} years<br>of turning<br><em>complexity</em><br>into clarity.</h2>
+        <div class="lead reveal">
+            <p>I started writing code as a teenager and never really stopped. That curiosity took me from building full-stack products at Stylelabs to leading technical support teams at Sitecore.</p>
+            <p>Today I sit where people, product and AI meet: coaching engineers, untangling the hardest customer problems, and building the tooling that lets AI models genuinely help the people who use them.</p>
+            <p>Away from the keyboard you'll find me at the gym, training the body with the same discipline I bring to training the mind.</p>
+            <div class="stats">
+                <div class="stat"><b data-count="{{ years }}" data-suffix="+">{{ years }}+</b><span>Years in tech</span></div>
+                <div class="stat"><b data-count="{{ site.data.experience | size }}">{{ site.data.experience | size }}</b><span>Roles</span></div>
+                <div class="stat"><b data-count="48">48</b><span>Hour reply time</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <div class="xp">
+        <div class="eyebrow reveal">Experience</div>
+        <h2 class="reveal">The path so far.</h2>
+        {% for job in site.data.experience %}
+        <article class="node reveal">
+            <div class="when">{{ job.when }}<span class="co">{{ job.company }}</span></div>
+            <div>
+                <h3>{{ job.role }}</h3>
+                <p>{{ job.summary }}</p>
+                {% if job.highlights %}
+                <ul class="highlights">
+                    {% for item in job.highlights %}<li>{{ item }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+                <div class="tags">{% for tag in job.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="skills">
+    <div class="full">
+        <div class="eyebrow reveal">Capabilities</div>
+        <h2 class="reveal">What I bring<br>to the <em>network</em>.</h2>
+        <div class="caps">
+            {% for cap in site.data.capabilities %}
+            <div class="cap reveal"><span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span><h4>{{ cap.title }}</h4><p>{{ cap.text }}</p></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="quote">
+    <blockquote class="reveal">“The only place where success comes before work is in the dictionary.”</blockquote>
+    <cite class="reveal">Vince Lombardi</cite>
+</section>
+
+<section class="contact" id="contact">
+    <div class="eyebrow reveal">Open channel</div>
+    <h2 class="reveal">Let's connect<br>the dots.</h2>
+    <a class="mail reveal" href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <p class="note reveal">Email is the best way to reach me. I usually reply within 48 hours.</p>
+    <div class="socials reveal">
+        <a href="{{ site.social.linkedin }}" rel="me noopener" target="_blank">LinkedIn</a>
+        <a href="{{ site.social.instagram }}" rel="me noopener" target="_blank">Instagram</a>
+        <a href="{{ site.social.facebook }}" rel="me noopener" target="_blank">Facebook</a>
+    </div>
+</section>

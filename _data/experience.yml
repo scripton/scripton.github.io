@@ -1,0 +1,39 @@
+# Career entries, newest first. Rendered in the "Experience" section.
+- when: 2024 — NOW
+  company: Sitecore
+  role: Product Support Manager &amp; Tech Support Lead
+  summary: >-
+    Leading a team of technical support engineers while bringing AI into the heart of how we work:
+    from onboarding and coaching to building MCP servers and tuning the AI that supports our customers.
+  highlights:
+    - Onboarding, training and managing a team of tech support engineers
+    - Product support for internal and external parties
+    - AI integration into existing processes
+    - MCP development and AI optimisation
+  tags: [Team leadership, AI integration, MCP development, AI optimisation]
+
+- when: 2018 — 2024
+  company: Sitecore
+  role: Tech Support Lead
+  summary: >-
+    A developer's take on support. I automated repetitive internal work, ran product training for
+    new hires and clients, onboarded engineers and managed teams across several locations.
+  highlights:
+    - Automated internal tasks to improve efficiency
+    - Product training sessions for new hires and clients
+    - Onboarding of technical support engineers
+    - Managed teams across different locations
+  tags: [Automation, Product training, Coaching, Distributed teams]
+
+- when: 2010 — 2018
+  company: Stylelabs
+  role: Full-Stack Web Developer
+  summary: >-
+    Eight years building and running the product end to end: client implementations, project and data
+    migrations, performance and stability work, and internal tools, often carrying several projects at once on my own.
+  highlights:
+    - Customer-facing support and implementations
+    - Project and data migrations
+    - Stability and performance improvements for existing projects
+    - Internal tools to increase productivity
+  tags: [Full-stack, Migrations, Performance, Internal tooling]

@@ -1,0 +1,13 @@
+# Capability tiles, rendered in the "Capabilities" section (best in multiples of three).
+- title: AI &amp; MCP engineering
+  text: Connecting language models to real product knowledge, and tuning them until the answers are worth trusting.
+- title: Team leadership
+  text: Hiring, onboarding and coaching support engineers into confident problem solvers.
+- title: Automation
+  text: Finding the repetitive work hiding in a process and turning it into a script.
+- title: Full-stack development
+  text: Front to back, from the first feature to the long tail of performance fixes.
+- title: Training &amp; enablement
+  text: Product sessions that turn new hires and clients into power users.
+- title: Migrations &amp; stability
+  text: Moving data and projects safely, and making what already exists faster.

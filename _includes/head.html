@@ -1,29 +1,35 @@
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTQWZ1Z5F7"></script>
+    {% if site.ga4 %}
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga4 }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-FTQWZ1Z5F7');
+      gtag('config', '{{ site.ga4 }}');
     </script>
+    {% endif %}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{page.title}}</title>
-    <meta name="description" content="Daniel's portfolio">
-    <meta name="keywords" content="daniel,portfolio,tech" />
-    <link rel="canonical" href="https://daniel.fyi/">
+    {% assign page_title = site.title | append: ' · ' | append: site.tagline %}
+    {% if page.title %}{% assign page_title = page.title | append: ' · ' | append: site.title %}{% endif %}
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="theme-color" content="#04050a">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="//cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/img/daniel.jpg' | absolute_url }}">
+    <meta name="twitter:card" content="summary">
 
-    <!-- Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>document.documentElement.className = 'js';</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
 </head>
