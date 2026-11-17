@@ -9,12 +9,14 @@ layout: default
     <div class="eyebrow">Portfolio · {{ now_year }}</div>
     <h1><span class="row">Daniel</span><span class="row">De Schrijver</span></h1>
     <p class="role">I lead technical support at Sitecore and wire <span class="typed" id="typed">AI into everything we do.</span></p>
+    <div class="meta"><span><i class="dot"></i><b>Sitecore</b></span><span>Support · AI · Leadership</span><span><b>{{ years }}+</b> yrs in tech</span></div>
     <div class="scroll-cue" aria-hidden="true">SCROLL<i></i></div>
 </section>
 
 <section id="about">
     <div class="grid2">
-        <h2 class="reveal">{{ years }} years<br>of turning<br><em>complexity</em><br>into clarity.</h2>
+        <div><div class="eyebrow reveal">01 / About</div>
+        <h2 class="reveal">{{ years }} years<br>of turning<br><em>complexity</em><br>into clarity.</h2></div>
         <div class="lead reveal">
             <p>I started writing code as a teenager and never really stopped. That curiosity took me from building full-stack products at Stylelabs to leading technical support teams at Sitecore.</p>
             <p>Today I sit where people, product and AI meet: coaching engineers, untangling the hardest customer problems, and building the tooling that lets AI models genuinely help the people who use them.</p>
@@ -30,7 +32,7 @@ layout: default
 
 <section id="work">
     <div class="xp">
-        <div class="eyebrow reveal">Experience</div>
+        <div class="eyebrow reveal">02 / Experience</div>
         <h2 class="reveal">The path so far.</h2>
         {% for job in site.data.experience %}
         <article class="node reveal">
@@ -52,7 +54,7 @@ layout: default
 
 <section id="skills">
     <div class="full">
-        <div class="eyebrow reveal">Capabilities</div>
+        <div class="eyebrow reveal">03 / Capabilities</div>
         <h2 class="reveal">What I bring<br>to the <em>network</em>.</h2>
         <div class="caps">
             {% for cap in site.data.capabilities %}
@@ -68,7 +70,7 @@ layout: default
 </section>
 
 <section class="contact" id="contact">
-    <div class="eyebrow reveal">Open channel</div>
+    <div class="eyebrow reveal">04 / Open channel</div>
     <h2 class="reveal">Let's connect<br>the dots.</h2>
     <a class="mail reveal" href="mailto:{{ site.email }}">{{ site.email }}</a>
     <p class="note reveal">Email is the best way to reach me. I usually reply within 48 hours.</p>

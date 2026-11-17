@@ -38,7 +38,7 @@
     var geo = new THREE.BufferGeometry();
     var pos = new Float32Array(N * 3); pos.set(shapes[0]);
     var col = new Float32Array(N * 3);
-    var cA = new THREE.Color('#5ef2ff'), cB = new THREE.Color('#ff3680'), cC = new THREE.Color('#a98bff');
+    var cA = new THREE.Color('#4da3ff'), cB = new THREE.Color('#2dd4bf'), cC = new THREE.Color('#7c8cff');
     for (var i = 0; i < N; i++) {
       var t = Math.random();
       var c = t < 0.5 ? cA.clone().lerp(cC, t * 2) : cC.clone().lerp(cB, (t - 0.5) * 2);
@@ -52,7 +52,7 @@
     gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.25, 'rgba(255,255,255,.6)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
     g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
 
-    var mat = new THREE.PointsMaterial({ size: 0.06, map: new THREE.CanvasTexture(dot), vertexColors: true, transparent: true, opacity: small ? 0.55 : 1, depthWrite: false, blending: THREE.AdditiveBlending });
+    var mat = new THREE.PointsMaterial({ size: 0.06, map: new THREE.CanvasTexture(dot), vertexColors: true, transparent: true, opacity: small ? 0.5 : 0.85, depthWrite: false, blending: THREE.AdditiveBlending });
     var group = new THREE.Group(); group.add(new THREE.Points(geo, mat)); scene.add(group);
 
     var resize = function () {
@@ -99,7 +99,7 @@
   Array.prototype.forEach.call(rows, function (r) {
     r.innerHTML = r.textContent.split('').map(function (ch) { return '<span class="ch">' + (ch === ' ' ? '&nbsp;' : ch) + '</span>'; }).join('');
   });
-  var grad = ['#5ef2ff', '#a98bff', '#ff3680'];
+  var grad = ['#4da3ff', '#7c8cff', '#2dd4bf'];
   var last = document.querySelectorAll('h1 .row:last-child .ch');
   if (hasThree && last.length > 1) {
     var c1 = new THREE.Color(grad[0]), c2 = new THREE.Color(grad[1]), c3 = new THREE.Color(grad[2]);
@@ -142,7 +142,7 @@
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.to('h1 .ch', { y: 0, duration: 1.2, ease: 'expo.out', stagger: 0.035, delay: 0.2 });
-  gsap.from('.hero .eyebrow, .role, .scroll-cue', { opacity: 0, y: 20, duration: 1, delay: 0.9, stagger: 0.15 });
+  gsap.from('.hero .eyebrow, .role, .meta, .scroll-cue', { opacity: 0, y: 20, duration: 1, delay: 0.9, stagger: 0.15 });
 
   gsap.utils.toArray('.reveal').forEach(function (el) {
     gsap.to(el, {
